@@ -693,3 +693,26 @@ int main() {
         }
     }
 }
+
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    getline(cin, s);
+    int count = 0, maxLen = 0;
+
+    for (int i = 0; i < s.size(); i++) {
+        if (isalpha(s[i])||s[i]=='['||s[i]==']') {
+            count++;
+            maxLen = max(maxLen, count);
+        } else {
+            count = 0;
+        }
+    }
+
+    cout << count;
+    return 0;
+}
