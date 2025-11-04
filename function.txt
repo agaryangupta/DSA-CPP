@@ -1,0 +1,152 @@
+// This is a comment
+
+/* The code below will print the words Hello World!
+to the screen, and it is amazing */
+
+//MATHS
+
+abs(x)          → absolute value
+sqrt(x)         → square root
+pow(a,b)        → a raised to power b
+max(a,b)        → returns larger of two numbers
+min(a,b)        → returns smaller of two numbers
+ceil(x)         → rounds up
+floor(x)        → rounds down
+round(x)        → rounds to nearest integer
+fmod(a,b)       → remainder (float version of %)
+
+Switch:
+switch(x) {
+  case 1: cout<<"One"; break;
+  default: cout<<"Other";
+}
+
+//STRING
+
+s.length() or s.size()         → length of string
+s.empty()                      → checks if string is empty
+s.substr(pos, len)             → substring from index
+s.find(str)                    → find first occurrence
+s.rfind(str)                   → find last occurrence
+s.append(str) or s += str      → concatenate
+s.insert(pos, str)             → insert at position
+s.erase(pos, len)              → remove characters
+s.replace(pos, len, str)       → replace substring
+s.front() / s.back()           → first or last character
+reverse(s.begin(), s.end())    → reverse string (from <algorithm>)
+to_string(num)                 → int → string
+getline(cin, s)                → read full line
+cin.ignore(); 
+
+//ARRAY & VECTOR FUNCTIONS
+
+v.size()               → number of elements
+v.push_back(x)         → add element at end
+v.pop_back()           → remove last element
+v.front(), v.back()    → first and last element
+v.clear()              → remove all elements
+sort(v.begin(), v.end())           → sort ascending
+sort(v.rbegin(), v.rend())         → sort descending
+reverse(v.begin(), v.end())        → reverse order
+max_element(v.begin(), v.end())    → max value
+min_element(v.begin(), v.end())    → min value
+count(v.begin(), v.end(), x)       → count occurrences
+rotate(v.begin(), v.begin()+k, v.end());  → rotate k positions
+accumulate(v.begin(), v.end(), 0);        → sum of vector (need <numeric>)
+
+//LOOPS & CONTROL
+
+for (int i=0; i<n; i++)     → basic for loop
+while (condition)            → entry-controlled loop
+do { ... } while (condition) → exit-controlled loop
+break                        → stop loop
+continue                     → skip current iteration
+
+//CHARACTER FUNCTIONS
+
+isalpha(ch)     → true if letter
+isdigit(ch)     → true if digit
+isalnum(ch)     → true if letter or digit
+islower(ch)     → true if lowercase
+isupper(ch)     → true if uppercase
+tolower(ch)     → convert to lowercase
+toupper(ch)     → convert to uppercase
+
+//STRING OPERATIONS (MANUAL)
+
+Concatenate: s3 = s1 + s2
+Compare: if (s1 == s2)
+Reverse (manual):
+    for (int i=s.size()-1; i>=0; i--) cout<<s[i];
+Check Palindrome:
+    if (s == reverse(s))
+Rotate Left:
+    s = s.substr(n) + s.substr(0, n);
+Rotate Right:
+    s = s.substr(len-n) + s.substr(0, len-n);
+
+//NUMERIC OPERATIONS
+
+Prime check loop → for (int j=2; j*j<=n; j++)
+Even check       → if (n % 2 == 0)
+Odd check        → if (n % 2 != 0)
+Sum of digits    → while (n>0) { sum += n%10; n/=10; }
+Reverse number   → while (n>0) { rev = rev*10 + n%10; n/=10; }
+
+//USEFUL HEADERS
+
+#include <iostream>     → input/output
+#include <string>       → string handling
+#include <vector>       → dynamic arrays
+#include <algorithm>    → sort, reverse, etc.
+#include <cmath>        → math functions
+#include <limits>       → numeric limits
+
+//LOGICAL & BITWISE OPERATORS
+
+&&  → AND
+||  → OR
+!   → NOT
+&   → Bitwise AND
+|   → Bitwise OR
+^   → XOR
+<<  → Left shift
+>>  → Right shift
+
+// UNORDERED SET
+unordered_set<int> myset1;
+unordered_set<int> myset2 = {1, 2, 3};
+
+// ORDERED SET
+set<int> myset3;
+set<int> myset4 = {1, 2, 3};
+
+// BOTH SETS
+#include <set>
+#include <unordered_set>
+
+myset.insert(element);                          // add element
+myset.insert(myset2.begin(), myset2.end());     // insert range
+myset.erase(element);                           // remove element
+myset.size();                                   // number of elements
+myset1 == myset2;                               // compare sets
+myset.find(element) != myset.end();             // check existence
+myset.count(element);                           // returns 1 if found, else 0
+
+insert(x) → add element
+erase(x) → remove element
+find(x) → returns iterator to element if found
+count(x) → returns 1 if element exists, else 0
+size() → total number of elements
+empty() → checks if set is empty
+clear() → removes all elements
+begin() → iterator to first element
+end() → iterator to last element
+swap(s2) → swaps contents with another set
+
+int sum = accumulate(s.begin(), s.end(),0)
+int max = *max_element(mySet.begin(),mySet.end());
+int min = *min_elementt(mySet.begin(),mySet.end()):
+for(int val:myset){
+    cout<<val;
+}
