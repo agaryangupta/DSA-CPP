@@ -150,3 +150,8 @@ int min = *min_elementt(mySet.begin(),mySet.end()):
 for(int val:myset){
     cout<<val;
 }
+
+set<int> s1 = {1, 2, 3};
+set<int> s2 = {3, 4, 5};
+set<int> uni = s1;
+set_union(a.begin(),a.end(),b.begin(),b.end(),inserter(set1,set1.begin()))
