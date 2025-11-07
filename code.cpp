@@ -807,6 +807,7 @@ int main() {
         cout << "false";
 }
 
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -927,14 +928,22 @@ int main() {
 	}
 	
 	set<int>common;
+    
 	set<int>c1(nums[0].begin(),nums[0].end());
+
     set<int>c2(nums[1].begin(),nums[1].end());
+
     set_intersection(c1.begin(),c1.end(),c2.begin(),c2.end(),inserter(common,common.end()));
+    
     for(int i=2;i<n;i++){
+
         set<int>c1(nums[i-1].begin(),nums[i-1].end());
+
         set<int>c2(nums[i].begin(),nums[i].end());
+
         set<int>c3;
         set<int>c4;
+
         set_intersection(c1.begin(),c1.end(),c2.begin(),c2.end(),inserter(c3,c3.end()));
         set_intersection(c3.begin(),c3.end(),common.begin(),common.end(),inserter(c4,c4.end()));
         common = c4;
@@ -963,6 +972,7 @@ int main() {
     
     for(int i=0;i<m;i++){
         int a=k-arr[i];
+
         if(ans.find(a)!= ans.end()){
             cout<<"True";
             break;
@@ -970,3 +980,21 @@ int main() {
     }
     return 0;
 }
+
+class Solution {
+  public:
+    bool twoSum(vector<int>& arr, int target) {
+        unordered_set<int> seen;
+        
+        for (int num : arr) {
+            int complement = target - num;
+            
+            if (seen.find(complement) != seen.end())
+                return true;
+            
+            seen.insert(num);
+        }
+        
+        return false;  
+    }
+};
