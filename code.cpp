@@ -829,3 +829,52 @@ int main() {
     cout << endl << s.size();
 
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+ordered list
+
+int main() {
+    
+    string s1,s2;
+    int n,m;
+    
+    cin>>n>>m;
+    cin>>s1;
+    cin>>s2;
+    
+    set<char>new1(s1.begin(),s1.end());
+    set<char>new2(s2.begin(),s2.end());
+    
+    set<char>res;
+    
+    set_intersection(new1.begin(),new1.end(),new2.begin(),new2.end(),inserter(res,res.begin()));
+    cout<<res.size();
+    
+}
+
+unordered list
+
+int main(){
+    
+    string s1,s2;
+    int n,m;
+    
+    cin>>n>>m;
+    cin>>s1>>s2;
+    
+    unordered_set<char>new1(s1.begin(),s1.end());
+    unordered_set<char>new2(s2.begin(),s2.end());
+    
+    set<char>res;
+     
+    for(int ch:new1){
+        auto it = new2.find(ch);
+        if(it!=new2.end()){
+            res.insert(ch);
+        }
+    }
+    
+    cout<<res.size();
+}
