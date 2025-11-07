@@ -912,3 +912,38 @@ int main() {
 }
 
 
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+	int n,m;
+	cin>>n>>m;
+	vector<vector<int>>nums(n,vector<int>(m));
+	for(int i=0;i<n;i++){
+	    for(int j=0;j<m;j++){
+	        cin>>nums[i][j];
+	    }
+	}
+	
+	set<int>common;
+	set<int>c1(nums[0].begin(),nums[0].end());
+    set<int>c2(nums[1].begin(),nums[1].end());
+    set_intersection(c1.begin(),c1.end(),c2.begin(),c2.end(),inserter(common,common.end()));
+    for(int i=2;i<n;i++){
+        set<int>c1(nums[i-1].begin(),nums[i-1].end());
+        set<int>c2(nums[i].begin(),nums[i].end());
+        set<int>c3;
+        set<int>c4;
+        set_intersection(c1.begin(),c1.end(),c2.begin(),c2.end(),inserter(c3,c3.end()));
+        set_intersection(c3.begin(),c3.end(),common.begin(),common.end(),inserter(c4,c4.end()));
+        common = c4;
+    }
+    if(common.size()==0){
+        cout<<-1;
+    }else{
+        for(int val : common){
+        cout<<val<<" ";
+    }
+    }
+}
