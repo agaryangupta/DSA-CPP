@@ -878,3 +878,37 @@ int main(){
     
     cout<<res.size();
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    
+    int n,m;
+    cin>>n>>m;
+    
+    vector<int>new1(n);
+    vector<int>new2(m);
+    
+    for(int i=0; i<n; i++){
+        cin>>new1[i];
+    }
+    
+    for(int i=0; i<m; i++){
+        cin>>new2[i];
+    }
+    
+    set<int>set1(new1.begin(),new1.end());
+    set<int>set2(new2.begin(),new2.end());
+    
+    set<int>p;
+    set<int>q;
+    
+    set_difference(set1.begin(),set1.end(),set2.begin(),set2.end(),inserter(p,p.end()));
+    set_difference(set2.begin(),set2.end(),set1.begin(),set1.end(),inserter(q,q.end()));
+
+    cout<<p.size()*q.size();
+    
+}
+
+
