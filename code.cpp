@@ -947,3 +947,26 @@ int main() {
     }
     }
 }
+
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    
+    int m,k;
+    cin>>m>>k;
+    vector<int>arr(m);
+    
+    for(int i=0;i<m;i++) 
+        cin>>arr[i];
+        
+    unordered_set<int> ans(arr.begin(),arr.end());
+    
+    for(int i=0;i<m;i++){
+        int a=k-arr[i];
+        if(ans.find(a)!= ans.end()){
+            cout<<"True";
+            break;
+        }
+    }
+    return 0;
+}
