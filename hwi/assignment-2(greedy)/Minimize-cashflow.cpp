@@ -1,39 +1,32 @@
 class Solution {
   public:
-    int maxStop(int m, vector<vector<int>> &trains) {
+    vector<vector<int>> minCashFlow(vector<vector<int>> &transaction, int n) {
         
-        vector<vector<pair<int,int>>> platforms(m + 1);
+        vector<int> amount(n, 0);
         
-        for(int i = 0; i < trains.size(); i++) {
-            int arr = trains[i][0];
-            int dep = trains[i][1];
-            int plat = trains[i][2];
-            
-            platforms[plat].push_back({arr, dep});
-        }
-        
-        int total = 0;
-        
-        for(int i = 1; i <= m; i++) {
-            
-            sort(platforms[i].begin(), platforms[i].end(), 
-                [](pair<int,int> a, pair<int,int> b) {
-                    return a.second < b.second;
-                });
-            
-            int lastDeparture = -1;
-            
-            for(int j = 0; j < platforms[i].size(); j++) {
-                int arr = platforms[i][j].first;
-                int dep = platforms[i][j].second;
-                
-                if(arr >= lastDeparture) {
-                    total++;
-                    lastDeparture = dep;
-                }
+        for(int i = 0; i < n; i++) {
+            for(int j = 0; j < n; j++) {
+                amount[i] += (transaction[j][i] - transaction[i][j]);
             }
         }
         
-        return total;
+        vector<vector<int>> result(n, vector<int>(n, 0));
+
+        while(true) {
+            
+            int mxCredit = max_element(amount.begin(), amount.end()) - amount.begin();
+            int mxDebit  = min_element(amount.begin(), amount.end()) - amount.begin();
+
+            if(amount[mxCredit] == 0 && amount[mxDebit] == 0) break;
+            
+            int mini = min(-amount[mxDebit], amount[mxCredit]);
+            
+            amount[mxCredit] -= mini;
+            amount[mxDebit] += mini;
+            
+            result[mxDebit][mxCredit] = mini;
+        }
+        
+        return result;
     }
 };
