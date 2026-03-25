@@ -32,7 +32,5 @@ int main() {
     swapAlternate(odd, 5);
     printArray(odd, 5);
 
-
-
     return 0;
 }
